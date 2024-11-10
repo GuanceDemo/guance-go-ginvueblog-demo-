@@ -58,4 +58,4 @@ jobs:
           push: true
           tags: |
             ${{ vars.DOCKER_REGISTRY }}/${{ vars.DOCKER_NAMESPACE }}/demo-gvb-web:${{ github.sha }}_dataway
-            ${{ vars.DOCKER_REGISTRY }}/${{ vars.DOCKER_NAMESPACE }}/demo-gvb-web:latest_dataway
+            ${{ vars.DOCKER_REGISTRY }}/${{ vars.DOCKER_NAMESPACE }}/demo-gvb-web:dataway_20241111
