@@ -11,7 +11,7 @@
     "up": "taze major -I"
   },
   "dependencies": {
-    "@cloudcare/browser-rum": "^3.0.29",
+    "@cloudcare/browser-rum": "^3.2.1",
     "@vueuse/core": "^9.13.0",
     "axios": "^0.27.2",
     "dayjs": "^1.11.8",

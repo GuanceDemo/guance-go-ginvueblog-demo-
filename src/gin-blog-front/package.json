@@ -10,7 +10,7 @@
     "up": "taze major -I"
   },
   "dependencies": {
-    "@cloudcare/browser-rum": "^3.1.4",
+    "@cloudcare/browser-rum": "^3.2.1",
     "@kangc/v-md-editor": "^2.3.15",
     "@vue/compiler-sfc": "^3.2.47",
     "@vueuse/core": "^9.12.0",
