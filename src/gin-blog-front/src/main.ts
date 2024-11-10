@@ -18,7 +18,7 @@ import { datafluxRum } from '@cloudcare/browser-rum';
 datafluxRum.init({
     applicationId: 'GinVueBlog_Front_Web',
     // applicationId: 'cdn_test',
-    // datakitOrigin: 'http://120.79.195.78:9529', // 协议（包括：//），域名（或IP地址）[和端口号]
+    datakitOrigin: '', // 协议（包括：//），域名（或IP地址）[和端口号]
     site: 'https://rum.pre-guance.houtai.io',
     clientToken: 'b61e59753fb44212aaf518af2c9b3d9d',
     env: 'production',
