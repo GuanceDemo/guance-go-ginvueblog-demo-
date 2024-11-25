@@ -4,14 +4,22 @@ import vue from '@vitejs/plugin-vue'
 import unocss from 'unocss/vite'
 import visualizer from 'rollup-plugin-visualizer'
 
+
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   process.env = { ...process.env, ...loadEnv(mode, process.cwd()) }
+  
+  
 
   return {
     base: process.env.VITE_PUBLIC_PATH || '/',
     resolve: {
       alias: { '@': resolve(__dirname, 'src') },
+    },
+    define: {
+      'import.meta.env.VITE_RUM_SITE': JSON.stringify(process.env.RUM_SITE),
+      'import.meta.env.VITE_RUM_CLIENTTOKEN': JSON.stringify(process.env.RUM_CLIENTTOKEN),
     },
     plugins: [
       vue(),

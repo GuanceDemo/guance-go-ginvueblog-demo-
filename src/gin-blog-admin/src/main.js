@@ -14,8 +14,8 @@ datafluxRum.init({
     // datakitOrigin: 'http://120.79.195.78:9529', // 协议（包括：//），域名（或IP地址）[和端口号]
     applicationId: 'cdn_test',
     // datakitOrigin: 'http://120.79.195.78:9529', // 协议（包括：//），域名（或IP地址）[和端口号]
-    site: 'https://rum.pre-guance.houtai.io',
-    clientToken: 'b61e59753fb44212aaf518af2c9b3d9d',
+    site: process.env.RUM_SITE || 'https://rum.pre-guance.houtai.io',
+    clientToken: process.env.RUM_CLIENTTOKEN || 'b61e59753fb44212aaf518af2c9b3d9d',
     env: 'production',
     version: '1.0.0',
     service: 'GinVueBlog_Admin_Web',
