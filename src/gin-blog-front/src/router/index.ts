@@ -120,7 +120,7 @@ export function setupRouter(app: App) {
   setupRouterGuard(router)
 
   axios.interceptors.request.use((config) => {
-    config.headers['tracId'] = 'your-trac-id-value'
+    config.headers['tracIdddd'] = 'your-trac-id-value'
     return config
   })
 
