@@ -57,4 +57,4 @@ jobs:
           push: true
           tags: |
             ${{ vars.DOCKER_REGISTRY }}/${{ vars.DOCKER_NAMESPACE }}/demo-gvb-web:${{ github.sha }}
-            ${{ vars.DOCKER_REGISTRY }}/${{ vars.DOCKER_NAMESPACE }}/demo-gvb-web:${{ github.ref }}
+            ${{ vars.DOCKER_REGISTRY }}/${{ vars.DOCKER_NAMESPACE }}/demo-gvb-web:front-test
