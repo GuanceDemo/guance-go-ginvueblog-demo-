@@ -9,7 +9,9 @@ export function createAxios(options = {}) {
   })
   service.interceptors.request.use(reqResolve, reqReject)
   service.interceptors.response.use(resResolve, resReject)
+  console.log(service)
   return service
+
 }
 
 export const request = createAxios(
