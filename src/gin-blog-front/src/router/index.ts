@@ -2,6 +2,7 @@ import type { App } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import { setupRouterGuard } from './guard'
 import type { RoutesType } from '~/types/router'
+import axios from 'axios'
 
 const basicRoutes: RoutesType = [
   {
@@ -117,5 +118,11 @@ const router = createRouter({
 
 export function setupRouter(app: App) {
   setupRouterGuard(router)
+
+  axios.interceptors.request.use((config) => {
+    config.headers['tracId'] = 'your-trac-id-value'
+    return config
+  })
+
   app.use(router)
 }

@@ -3,13 +3,12 @@ package utils
 import (
 	"context"
 
+	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/pprofextension"
+	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/exporters/otlp/otlptrace"
 	"go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp"
 	"go.opentelemetry.io/otel/propagation"
 	"go.opentelemetry.io/otel/sdk/resource"
-
-	// "log"
-	"go.opentelemetry.io/otel"
 	sdktrace "go.opentelemetry.io/otel/sdk/trace"
 	semconv "go.opentelemetry.io/otel/semconv/v1.17.0"
 )
@@ -19,6 +18,12 @@ type TraceVar struct {
 	CollectorURLPath  string
 	ServiceNameKey    string
 	ServiceVersion    string
+}
+
+func InitProfile() error {
+	pprofextension.New
+	ppro
+	return
 }
 
 // 初始化 tracer 函数
