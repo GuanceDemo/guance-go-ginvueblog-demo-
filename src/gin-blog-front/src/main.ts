@@ -26,9 +26,7 @@ datafluxRum.init({
     trackInteractions: true,
     traceType: 'w3c_traceparent', // 非必填，默认为ddtrace，目前支持 ddtrace、zipkin、skywalking_v3、jaeger、zipkin_single_header、w3c_traceparent 6种类型
     allowedTracingOrigins: [/.*/],  // 非必填，允许注入trace采集器所需header头部的所有请求列表。可以是请求的origin，也可以是是正则
-    sss: {
-        traceid: generateTraceId()
-    }
+
 })
 
 datafluxRum.startSessionReplayRecording();
