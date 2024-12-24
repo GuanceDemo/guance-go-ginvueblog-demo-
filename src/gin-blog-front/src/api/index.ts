@@ -2,9 +2,18 @@ import { request } from '@/utils'
 import type { RequestConfig } from '~/types/axios'
 
 // 生成一个32位的十六进制字符串作为 traceid
+// const generateTraceId = () => {
+//   return [...Array(32)].map(() => Math.floor(Math.random() * 16).toString(16)).join('');
+// }
+
+
 const generateTraceId = () => {
-  return [...Array(32)].map(() => Math.floor(Math.random() * 16).toString(16)).join('');
+  const traceid = [...Array(32)].map(() => Math.floor(Math.random() * 16).toString(16)).join('')
+  window.GC_TRACE_ID = traceid
+  return traceid
 }
+
+
 
 export default {
   login: (data: any = {}) => request.post('/login', data, { headers: { traceid: generateTraceId() } }),
