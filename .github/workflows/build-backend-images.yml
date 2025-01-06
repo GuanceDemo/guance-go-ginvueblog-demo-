@@ -3,7 +3,7 @@ name: Build and push gvb backend demo images
 on:
   push:
     branches:
-      - main
+      - otel-sevice-alone-test
     paths:
       - 'src/**'
   workflow_dispatch:
@@ -40,5 +40,5 @@ jobs:
           file: ./src/gin-blog-server/Dockerfile
           push: true
           tags: |
-            ${{ vars.DOCKER_REGISTRY }}/${{ vars.DOCKER_NAMESPACE }}/demo-gvb-server:${{ github.sha }}
-            ${{ vars.DOCKER_REGISTRY }}/${{ vars.DOCKER_NAMESPACE }}/demo-gvb-server:latest
+            ${{ vars.DOCKER_REGISTRY }}/${{ vars.DOCKER_NAMESPACE }}/demo-gvb-server:${{ github.sha }}-otel-sevice-alone-test
+            ${{ vars.DOCKER_REGISTRY }}/${{ vars.DOCKER_NAMESPACE }}/demo-gvb-server:latest-otel-sevice-alone-test
