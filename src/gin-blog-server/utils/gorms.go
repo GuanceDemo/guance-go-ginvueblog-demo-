@@ -4,12 +4,10 @@ import (
 	"fmt"
 	"gin-blog/config"
 	"gin-blog/model"
-	"os"
 
 	"log"
 	"time"
 
-	"github.com/uptrace/opentelemetry-go-extra/otelgorm"
 	"gorm.io/driver/mysql"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
@@ -54,14 +52,14 @@ func InitMySQLDB() *gorm.DB {
 
 	log.Println("MySQL 连接成功")
 
-	traceVar := &TraceVar{
-		CollectorEndpoint: os.Getenv("OTEL_EXPORTER_OTLP_ENDPOINT"),
-		CollectorURLPath:  os.Getenv("OTEL_EXPORTER_OTLP_URL_PATH"),
-		ServiceNameKey:    os.Getenv("OTEL_DB_SERVICE_NAME"),
-		ServiceVersion:    os.Getenv("SERVICE_VERSION"),
-	}
+	// traceVar := &TraceVar{
+	// 	CollectorEndpoint: os.Getenv("OTEL_EXPORTER_OTLP_ENDPOINT"),
+	// 	CollectorURLPath:  os.Getenv("OTEL_EXPORTER_OTLP_URL_PATH"),
+	// 	ServiceNameKey:    os.Getenv("OTEL_DB_SERVICE_NAME"),
+	// 	ServiceVersion:    os.Getenv("SERVICE_VERSION"),
+	// }
 
-	InitTracer(traceVar)
+	// InitTracer(traceVar)
 	// otel.SetTextMapPropagator(propagation.NewCompositeTextMapPropagator(propagation.TraceContext{}, propagation.Baggage{}))
 
 	// tp := otel.GetTracerProvider()
@@ -71,9 +69,9 @@ func InitMySQLDB() *gorm.DB {
 	// _, span := tracer.Start(context.Background(), "MyNewSpan")
 	// defer span.End()
 
-	if err := db.Use(otelgorm.NewPlugin()); err != nil {
-		panic(err)
-	}
+	// if err := db.Use(otelgorm.NewPlugin()); err != nil {
+	// 	panic(err)
+	// }
 
 	// 迁移数据表，在没有数据表结构变更时候，建议注释不执行
 	// MakeMigrate(db)

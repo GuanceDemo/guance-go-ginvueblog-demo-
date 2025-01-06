@@ -4,11 +4,9 @@ import (
 	"context"
 	"gin-blog/config"
 	"log"
-	"os"
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/redis/go-redis/extra/redisotel/v9"
 	"github.com/redis/go-redis/v9"
 	"go.uber.org/zap"
 )
@@ -27,14 +25,14 @@ type _redis struct{}
 
 // 初始化 redis 连接
 func InitRedis() *redis.Client {
-	traceVar := &TraceVar{
-		CollectorEndpoint: os.Getenv("OTEL_EXPORTER_OTLP_ENDPOINT"),
-		CollectorURLPath:  os.Getenv("OTEL_EXPORTER_OTLP_URL_PATH"),
-		ServiceNameKey:    os.Getenv("OTEL_REDIS_SERVICE_NAME"),
-		ServiceVersion:    os.Getenv("SERVICE_VERSION"),
-	}
+	// traceVar := &TraceVar{
+	// 	CollectorEndpoint: os.Getenv("OTEL_EXPORTER_OTLP_ENDPOINT"),
+	// 	CollectorURLPath:  os.Getenv("OTEL_EXPORTER_OTLP_URL_PATH"),
+	// 	ServiceNameKey:    os.Getenv("OTEL_REDIS_SERVICE_NAME"),
+	// 	ServiceVersion:    os.Getenv("SERVICE_VERSION"),
+	// }
 
-	InitTracer(traceVar)
+	// InitTracer(traceVar)
 
 	redisCfg := config.Cfg.Redis
 	rdb = redis.NewClient(&redis.Options{
@@ -49,10 +47,10 @@ func InitRedis() *redis.Client {
 	}
 	log.Println("Redis 连接成功 ")
 
-	if err := redisotel.InstrumentTracing(rdb); err != nil {
-		panic(err)
+	// if err := redisotel.InstrumentTracing(rdb); err != nil {
+	// 	panic(err)
 
-	}
+	// }
 
 	// 加入otel可观测改造
 
